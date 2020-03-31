@@ -1,9 +1,10 @@
+//all dependencies should be at the top.
 const dotenv = require('dotenv');
 const express = require("express");
 const got = require("got");
 const uuidv4 = require("uuid/v4");
 const bodyParser = require("body-parser");
-//all dependencies should be at the top.
+
 dotenv.config();
 
 const app = express();
@@ -15,16 +16,16 @@ app.post("/api/translate", async (request, response) => {
 
   const { string: textToConvert } = request.body;
   //const languageCode = request.body.language;
-  if (!language) {
-    //catches all falsy values
+  if (!language) { //catches all falsy values
+   
     const responseObj = {
       status: "failed",
       message: "Language code cannot be empty",
     };
     response.status(400);
     response.json(responseObj);
-  } else if (!textToConvert) {
-    //catches all falsy values
+  } else if (!textToConvert) {//catches all falsy values
+    
     let responseObj = {
       status: "failed",
       message: "Please enter a string to convert",
