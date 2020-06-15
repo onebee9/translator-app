@@ -20,7 +20,7 @@
     background-image: url('img/full-frame-shot-of-snowflakes-326240.jpg');
   }
 
-.form-center{
+/* .form-center{
     width: 600px;
     position:absolute;
     left: 50%;
@@ -29,7 +29,7 @@
     margin-top: -25px;
     padding:25px;
     text-align:left;
-}
+} */
 
 input[type="text"],
 select {
@@ -44,7 +44,7 @@ input ::placeholder {
   font-weight: 500;
 }
 
-#loginSubmit {
+#submit {
   background-color: rgb(24, 26, 28);
   color: white;
   padding: 14px 20px;
@@ -59,14 +59,25 @@ button:hover {
   }
 
 .loginContainer {
+  display: flex;
+  flex-direction: row;
   padding: 16px;
-  margin: auto;
-  width: 50%;
+  width: 100%;
 }
 .translatedText{
     padding: 10px;
-    background-color:efefef;
+    background-color:white;
     margin:5px;
     font-weight: 400;
+    width: 50%;
+}
+.fw600{font-weight: 600;}
+
+#leftSection{
+  margin-right:30px;
+}
+#rightSection{
+  width: 100%;
+  flex-wrap: nowrap;
 }
 

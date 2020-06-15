@@ -4,22 +4,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta charset="UTF-8">
     <link href="style.css" rel="stylesheet" />
-    <script src="index.js"></script>
   </head>
-  <body onload = "loadLanguages()">
-    <form id="getInfo" method="POST">
-      <div class="loginContainer">
-        <label for="text">What would you like to translate?</label>
-        <input id="text" name="text" type="text" placeholder="Enter text"
-          required
-        />
-        <label for="selectLanguage">Select language<b>[s]</b></label>
-        <select id="selectLanguage" name="selectLanguage" required></select>
+  <body>
+    <div class="loginContainer">
+        <div id="leftSection">
+            <form id="getInfo" method="POST">
+            
+                <label for="text">What would you like to translate?</label>
+                <input id="text" name="text" type="text" placeholder="Enter text"
+                />
+                <label for="selectLanguage">Select language</label>
+                <select id="selectLanguage" name="selectLanguage" required></select>
 
-        <button id="loginSubmit" type="submit">Login</button>
-        <div id="translations"></div>
+                <button id="submit" type="submit">Translate</button>
+            </form>
+         </div>
+        <div id="rightSection">
+          <div id="translations"></div>
+        </div>
       </div>
-    </form>
- 
+    <script src="index.js"></script>
+    <script>loadLanguages();</script>
   </body>
 </html>
