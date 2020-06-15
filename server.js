@@ -54,13 +54,12 @@ app.post("/api/translate", async (request, response) => {
     };
 
     try {
-      console.log("alibaba");
       const result = await got.post(
         `${process.env.ENDPOINT}translate?api-version=3.0&to=${language}`,
         options);
 
-
       let results = JSON.parse(result.body);
+      console.log(results);
       let responseObj = {
         translatedText: results[0].translations[0].text,
         language, // language:language
