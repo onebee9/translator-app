@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="UTF-8">
+    <link href="style.css" rel="stylesheet" />
+    <script src="index.js"></script>
+  </head>
+  <body onload = "loadLanguages()">
+    <form id="getInfo" method="POST">
+      <div class="loginContainer">
+        <label for="text">What would you like to translate?</label>
+        <input id="text" name="text" type="text" placeholder="Enter text"
+          required
+        />
+        <label for="selectLanguage">Select language<b>[s]</b></label>
+        <select id="selectLanguage" name="selectLanguage" required></select>
+
+        <button id="loginSubmit" type="submit">Login</button>
+        <div id="translations"></div>
+      </div>
+    </form>
+ 
+  </body>
+</html>
