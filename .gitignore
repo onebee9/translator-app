@@ -1,3 +1,6 @@
 .env
 .history
 node_modules
+fonts
+package
+package-lock

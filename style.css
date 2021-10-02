@@ -1,0 +1,83 @@
+@import "fonts/gilroy/stylesheet.css";
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  Html {
+    min-height: 100%;
+    max-height: 100%;
+    width: 100%;
+    height: 100%;
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: "Gilroy", sans-serif;
+    background-color: #efefef;
+    line-height: 1;
+    background-image: url('img/full-frame-shot-of-snowflakes-326240.jpg');
+  }
+
+/* .form-center{
+    width: 600px;
+    position:absolute;
+    left: 50%;
+    top: 25%; 
+    margin-left: -300px;
+    margin-top: -25px;
+    padding:25px;
+    text-align:left;
+} */
+
+input[type="text"],
+select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+input ::placeholder {
+  font-weight: 500;
+}
+
+#submit {
+  background-color: rgb(24, 26, 28);
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:hover {
+    opacity: 0.8;
+  }
+
+.loginContainer {
+  display: flex;
+  flex-direction: row;
+  padding: 16px;
+  width: 100%;
+}
+.translatedText{
+    padding: 10px;
+    background-color:white;
+    margin:5px;
+    font-weight: 400;
+    width: 50%;
+}
+.fw600{font-weight: 600;}
+
+#leftSection{
+  margin-right:30px;
+}
+#rightSection{
+  width: 100%;
+  flex-wrap: nowrap;
+}
+
