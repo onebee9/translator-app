@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="UTF-8">
+    <link href="style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="loginContainer">
+        <div id="leftSection">
+            <form id="getInfo" method="POST">
+            
+                <label for="text">What would you like to translate?</label>
+                <input id="text" name="text" type="text" placeholder="Enter text"
+                />
+                <label for="selectLanguage">Select language</label>
+                <select id="selectLanguage" name="selectLanguage" required></select>
+
+                <button id="submit" type="submit">Translate</button>
+            </form>
+         </div>
+        <div id="rightSection">
+          <div id="translations"></div>
+        </div>
+      </div>
+    <script src="index.js"></script>
+    <script>loadLanguages();</script>
+  </body>
+</html>
