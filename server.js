@@ -1,23 +1,19 @@
-//all dependencies should be at the top.
+//all dependencies
 const dotenv = require("dotenv");
 const express = require("express");
 const got = require("got");
-const uuidv4 = require("uuid/v4");
-const bodyParser = require("body-parser");
+const { v4: uuidv4 } = require('uuid');
 const cors = require("cors");
-const path = require("path");
 
 dotenv.config();
 const app = express();
-app.use(bodyParser.json());
+app.use(express.json());
 app.use(cors());
-app.use(express.static(path.join(__dirname + "/FE/")));
+app.use(express.static(__dirname));
 
 app.post("/api/translate", async (request, response) => {
-  const language = request.body.language;
-  console.log(language);
-  const textToConvert = request.body.text;
-  console.log(textToConvert)
+const language = request.body.language;
+const textToConvert = request.body.text;
 
   //catch all falsy values
   if (!language) {
@@ -27,23 +23,23 @@ app.post("/api/translate", async (request, response) => {
     };
     response.status(400);
     response.json(responseObj);
+
   } else if (!textToConvert) {
-    //catches all falsy values
+    
     let responseObj = {
       status: "failed",
       message: "Please enter a string to convert",
     };
+
     response.status(400);
     response.json(responseObj);
+
   } else {
     const sendToApi = [];
-    const sendObject = {
-      text: textToConvert,
-    };
-    sendToApi.push(sendObject);
-    console.log(sendToApi);
+    const sendObject = {text: textToConvert};
 
-    let options = {
+    sendToApi.push(sendObject);
+    let options = { // Api request header + body to match expected format
       headers: {
         "Ocp-Apim-Subscription-Key": process.env.KEY,
         "Ocp-Apim-Subscription-Region":'canadacentral',
@@ -54,18 +50,14 @@ app.post("/api/translate", async (request, response) => {
     };
 
     try {
-      const result = await got.post(
-        `${process.env.ENDPOINT}translate?api-version=3.0&to=${language}`,
-        options);
-
+      const result = await got.post(`${process.env.ENDPOINT}translate?api-version=3.0&to=${language}`,options);
       let results = JSON.parse(result.body);
-      console.log(results);
+      
       let responseObj = {
         translatedText: results[0].translations[0].text,
         language, // language:language
         time: new Date(),
       };
-      console.log(responseObj);
 
       response.status(200);
       response.json(responseObj);
@@ -74,7 +66,7 @@ app.post("/api/translate", async (request, response) => {
       console.log(error);
       response.status(400);
       response.send(error);
-    }
+      }
   }
 });
 
@@ -102,7 +94,7 @@ app.get("/api/languages", async (request, response) => {
     console.log(error);
     response.status(400);
     response.send(error);
-  }
+    }
 });
 
 app.listen(process.env.PORT, () =>
