@@ -33,19 +33,18 @@ const getInfo = document.getElementById("getInfo");
       const userText = document.getElementById("text").value;
       const languages = languageOptions.options[languageOptions .selectedIndex].value; //formats the output to mimic a query string
       const fullLang = languageOptions.options[languageOptions .selectedIndex].innerHTML;
-      console.log(languages);
+
       const data = {
         text: userText,
         language: languages,
       };
-
 
       const options = {
         method: "POST",
         headers: {
           "content-type": "application/json",
         },
-        body: JSON.stringify(data),
+        body: JSON.stringify(data)
       };
 
       //retrieves translated data 
